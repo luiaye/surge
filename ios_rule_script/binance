@@ -1,0 +1,11 @@
+# NAME: binance
+# AUTHOR: luiaye
+# REPO: https://github.com/luiaye/surge/ios_rule_script
+# UPDATED: 2024-10-17 8:18:29
+# DOMAIN: 0
+# DOMAIN-SUFFIX: 2
+# DOMAIN-KEYWORD:1
+# TOTAL: 3
+DOMAIN-SUFFIX,bntrace.com
+DOMAIN-SUFFIX,binancecnt.com
+DOMAIN-KEYWORD,binance
