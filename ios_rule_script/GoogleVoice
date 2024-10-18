@@ -9,5 +9,5 @@
 # TOTAL: 5
 DOMAIN-SUFFIX,l.google.com
 DOMAIN-SUFFIX,googleapis.com
-IP-CIDR,74.125.39.73/32,no-resolve
+IP-CIDR,74.125.0.0/16,no-resolve
 IP-CIDR,216.239.36.145/32,no-resolve
