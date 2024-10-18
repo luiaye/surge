@@ -1,0 +1,13 @@
+# NAME: GoogleVoice
+# AUTHOR: luiaye
+# REPO: https://github.com/luiaye/surge/ios_rule_script
+# UPDATED: 2024-10-17 8:18:29
+# DOMAIN: 2
+# DOMAIN-SUFFIX: 1
+# DOMAIN-KEYWORD:0
+# IP-CIDR:2
+# TOTAL: 5
+DOMAIN-SUFFIX,l.google.com
+DOMAIN-SUFFIX,googleapis.com
+IP-CIDR,74.125.39.73/32,no-resolve
+IP-CIDR,216.239.36.145/32,no-resolve
