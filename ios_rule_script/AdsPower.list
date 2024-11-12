@@ -7,6 +7,6 @@
 # DOMAIN-KEYWORD:0
 # PROCESS-NAME:3
 # TOTAL: 3
-PROCESS-NAME,/Applications/AdsPower Global.app/Contents/MacOS/AdsPower Global,HK
-PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Resources/utils/AdsPowerToolMerge.app/Contents/MacOS/AdsPowerToolMerge,HK
-PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Frameworks/AdsPower Global Helper.app/Contents/MacOS/AdsPower Global Helper,HK
+PROCESS-NAME,/Applications/AdsPower Global.app/Contents/MacOS/AdsPower Global
+PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Resources/utils/AdsPowerToolMerge.app/Contents/MacOS/AdsPowerToolMerge
+PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Frameworks/AdsPower Global Helper.app/Contents/MacOS/AdsPower Global Helper
