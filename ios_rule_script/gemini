@@ -1,0 +1,22 @@
+# === Gemini 分流 ===
+# 主服务
+
+# 开发与API (防止地区限制报错)
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+
+# 关键依赖 (图片生成/历史记录图片)
+DOMAIN-SUFFIX,aistudio.google.com
+# 必须走指定节点，否则可能出现裂图
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+
+# 建议依赖 (Google API)
+DOMAIN,proactivebackend-pa.googleapis.com
+# 保持 IP 一致，防止风控
+DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN-SUFFIX,googleapis.com
+DOMAIN-SUFFIX,gstatic.com
+# === Gemini End ===
