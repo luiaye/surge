@@ -131,7 +131,7 @@ EOF
 
 # --- 菜单循环 ---
 while true; do
-    echo -e "\n${CYAN}--- ShadowTLS & Snell V5 全能管理脚本 ---${PLAIN}"
+    echo -e "\n${CYAN}--- ShadowTLS & Snell V5 定制脚本 ---${PLAIN}"
     echo -e "${GREEN}1)${PLAIN} 安装"
     echo -e "${RED}2)${PLAIN} 彻底卸载"
     echo -e "${YELLOW}0)${PLAIN} 退出脚本"
