@@ -106,7 +106,7 @@ EOF
 Description=ShadowTLS Service
 After=network.target snell.service
 [Service]
-ExecStart=/usr/local/bin/shadow-tls server --listen [::]:${STLS_PORT} --server 127.0.0.1:${SNELL_PORT} --tls icloud.com:443 --password ${PW}
+ExecStart=/usr/local/bin/shadow-tls server --listen [::]:${STLS_PORT} --server 127.0.0.1:${SNELL_PORT} --tls www.microsoft.com:443 --password ${PW}
 Restart=always
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 [Install]
