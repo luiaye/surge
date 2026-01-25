@@ -62,7 +62,7 @@ install() {
     detect_arch
 
     echo -e "${CYAN}--- 端口配置 ---${PLAIN}"
-    SNELL_PORT=$(check_and_set_port 33366 "Snell(后端)")
+    SNELL_PORT=$(check_and_set_port 33365 "Snell(后端)")
     STLS_PORT=$(check_and_set_port 443 "ShadowTLS(前端)")
 
     echo -e "${CYAN}正在从官方源下载二进制文件...${PLAIN}"
