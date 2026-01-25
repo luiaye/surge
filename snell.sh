@@ -11,10 +11,26 @@ YELLOW='\033[0;33m'
 CYAN='\033[0;36m'
 PLAIN='\033[0m'
 
-# 检查 root 权限
+# 权限检查
 [[ $EUID -ne 0 ]] && echo -e "${RED}错误：请使用 root 运行${PLAIN}" && exit 1
 
-# --- 端口检查与手动输入函数 ---
+# --- 系统网络优化 (TFO & BBR) ---
+optimize_system() {
+    echo -e "${CYAN}正在优化系统网络环境 (TFO & BBR)...${PLAIN}"
+    # 开启 TFO
+    sysctl -w net.ipv4.tcp_fastopen=3 >/dev/null
+    if ! grep -q "net.ipv4.tcp_fastopen = 3" /etc/sysctl.conf; then
+        echo "net.ipv4.tcp_fastopen = 3" >> /etc/sysctl.conf
+    fi
+    # 开启 BBR
+    if ! sysctl net.ipv4.tcp_congestion_control | grep -q "bbr"; then
+        echo "net.core.default_qdisc = fq" >> /etc/sysctl.conf
+        echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
+        sysctl -p >/dev/null
+    fi
+}
+
+# --- 端口检查 ---
 check_and_set_port() {
     local default_port=$1
     local port_name=$2
@@ -60,20 +76,18 @@ uninstall() {
 install() {
     apt update && apt install -y wget unzip curl
     detect_arch
+    optimize_system
 
     echo -e "${CYAN}--- 端口配置 ---${PLAIN}"
     SNELL_PORT=$(check_and_set_port 33365 "Snell(后端)")
     STLS_PORT=$(check_and_set_port 443 "ShadowTLS(前端)")
 
-    echo -e "${CYAN}正在下载官方二进制文件...${PLAIN}"
-    wget -O /usr/local/bin/shadow-tls "${STLS_URL}"
-    chmod +x /usr/local/bin/shadow-tls
-
+    echo -e "${CYAN}正在下载二进制文件...${PLAIN}"
+    wget -O /usr/local/bin/shadow-tls "${STLS_URL}" && chmod +x /usr/local/bin/shadow-tls
     wget -O snell.zip "${SNELL_URL}"
-    unzip -o snell.zip && chmod +x snell-server && mv -f snell-server /usr/local/bin/snell-server
-    rm -f snell.zip
+    unzip -o snell.zip && chmod +x snell-server && mv -f snell-server /usr/local/bin/snell-server && rm -f snell.zip
 
-    # 配置 Snell
+    # 配置 Snell 
     mkdir -p /etc/snell
     PSK=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
     cat > /etc/snell/config.conf << EOF
@@ -118,19 +132,17 @@ EOF
 
     clear
     echo -e "${GREEN}==================================================${PLAIN}"
-    echo -e "${GREEN}安装成功！已切换至 Shadow-TLS V3 模式。${PLAIN}"
-    echo -e "--------------------------------------------------"
-    echo -e "Snell 端口: ${YELLOW}${SNELL_PORT}${PLAIN}"
-    echo -e "STLS 端口: ${YELLOW}${STLS_PORT}${PLAIN}"
+    echo -e "${GREEN}安装成功！${PLAIN}"
     echo -e "--------------------------------------------------"
     
-    echo -e "${CYAN}1. Surge 配置 (Shadow-TLS V3)${PLAIN}"
-    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_4 = snell, ${IP4}, ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com, shadow-tls-version=3"
-    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_6 = snell, [${IP6}], ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com, shadow-tls-version=3"
+    echo -e "${CYAN}1. Surge 配置 (Shadow-TLS V3 + TFO + Reuse)${PLAIN}"
+
+    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_4 = snell, ${IP4}, ${STLS_PORT}, psk = ${PSK}, version = 5, reuse = true, tfo = true, shadow-tls-password = ${PW}, shadow-tls-sni = www.microsoft.com, shadow-tls-version = 3"
+    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_6 = snell, [${IP6}], ${STLS_PORT}, psk = ${PSK}, version = 5, reuse = true, tfo = true, shadow-tls-password = ${PW}, shadow-tls-sni = www.microsoft.com, shadow-tls-version = 3"
     
-    echo -e "\n${CYAN}2. 纯 Snell 模式 (直连)${PLAIN}"
-    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_Snell4 = snell, ${IP4}, ${SNELL_PORT}, psk=${PSK}, version=5, tfo=true"
-    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_Snell6 = snell, [${IP6}], ${SNELL_PORT}, psk=${PSK}, version=5, tfo=true"
+    echo -e "\n${CYAN}2. 纯 Snell 模式 (直连 + TFO + Reuse)${PLAIN}"
+    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_Snell4 = snell, ${IP4}, ${SNELL_PORT}, psk = ${PSK}, version = 5, reuse = true, tfo = true"
+    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_Snell6 = snell, [${IP6}], ${SNELL_PORT}, psk = ${PSK}, version = 5, reuse = true, tfo = true"
     echo -e "${GREEN}==================================================${PLAIN}"
 }
 
