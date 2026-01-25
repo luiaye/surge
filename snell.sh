@@ -62,15 +62,14 @@ install() {
     detect_arch
 
     echo -e "${CYAN}--- 端口配置 ---${PLAIN}"
+    # 按照要求修改默认端口为 33365
     SNELL_PORT=$(check_and_set_port 33365 "Snell(后端)")
     STLS_PORT=$(check_and_set_port 443 "ShadowTLS(前端)")
 
     echo -e "${CYAN}正在从官方源下载二进制文件...${PLAIN}"
-    # 直接下载 ShadowTLS
     wget -O /usr/local/bin/shadow-tls "${STLS_URL}"
     chmod +x /usr/local/bin/shadow-tls
 
-    # 直接下载 Snell
     wget -O snell.zip "${SNELL_URL}"
     unzip -o snell.zip && chmod +x snell-server && mv -f snell-server /usr/local/bin/snell-server
     rm -f snell.zip
@@ -99,7 +98,7 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
-    # 配置 ShadowTLS (监听双栈 [::])
+    # 配置 ShadowTLS (使用 www.microsoft.com 作为伪装域名)
     PW=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
     cat > /etc/systemd/system/shadowtls.service << EOF
 [Unit]
@@ -121,9 +120,10 @@ EOF
 
     clear
     echo -e "${GREEN}==================================================${PLAIN}"
-    echo -e "${GREEN}直连安装成功！已适配 ${ARCH} 架构。${PLAIN}"
+    echo -e "${GREEN}安装成功！已切换至 Microsoft SNI 伪装。${PLAIN}"
     echo -e "--------------------------------------------------"
-    echo -e "IPv4: ${YELLOW}${IP4}${PLAIN} | IPv6: ${YELLOW}${IP6}${PLAIN}"
+    echo -e "Snell 端口: ${YELLOW}${SNELL_PORT}${PLAIN}"
+    echo -e "STLS 端口: ${YELLOW}${STLS_PORT}${PLAIN}"
     echo -e "--------------------------------------------------"
     
     echo -e "${CYAN}1. Shadow-TLS 模式 (推荐)${PLAIN}"
@@ -138,7 +138,7 @@ EOF
 
 # --- 菜单循环 ---
 while true; do
-    echo -e "\n${CYAN}--- ShadowTLS & Snell V5 定制脚本 ---${PLAIN}"
+    echo -e "\n${CYAN}--- ShadowTLS & Snell 定制脚本 ---${PLAIN}"
     echo -e "${GREEN}1)${PLAIN} 安装"
     echo -e "${RED}2)${PLAIN} 彻底卸载"
     echo -e "${YELLOW}0)${PLAIN} 退出脚本"
