@@ -127,8 +127,8 @@ EOF
     echo -e "--------------------------------------------------"
     
     echo -e "${CYAN}1. Shadow-TLS 模式 (推荐)${PLAIN}"
-    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_4 = snell, ${IP4}, ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=icloud.com"
-    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_6 = snell, [${IP6}], ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=icloud.com"
+    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_4 = snell, ${IP4}, ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com"
+    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_6 = snell, [${IP6}], ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com"
     
     echo -e "\n${CYAN}2. 纯 Snell 模式 (直连)${PLAIN}"
     [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_Snell4 = snell, ${IP4}, ${SNELL_PORT}, psk=${PSK}, version=5, tfo=true"
