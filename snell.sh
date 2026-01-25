@@ -1,6 +1,6 @@
 #!/bin/bash
 # =========================================
-# Snell V5 + ShadowTLS 定制版26.1.25
+# Snell V5 + ShadowTLS V3 定制版
 # 作者: luiaye
 # =========================================
 
@@ -30,7 +30,7 @@ check_and_set_port() {
     echo $final_port
 }
 
-# --- 架构适配（直连版） ---
+# --- 架构适配 ---
 detect_arch() {
     ARCH=$(uname -m)
     if [[ ${ARCH} == "x86_64" ]]; then
@@ -62,11 +62,10 @@ install() {
     detect_arch
 
     echo -e "${CYAN}--- 端口配置 ---${PLAIN}"
-    # 按照要求修改默认端口为 33365
     SNELL_PORT=$(check_and_set_port 33365 "Snell(后端)")
     STLS_PORT=$(check_and_set_port 443 "ShadowTLS(前端)")
 
-    echo -e "${CYAN}正在从官方源下载二进制文件...${PLAIN}"
+    echo -e "${CYAN}正在下载官方二进制文件...${PLAIN}"
     wget -O /usr/local/bin/shadow-tls "${STLS_URL}"
     chmod +x /usr/local/bin/shadow-tls
 
@@ -98,14 +97,14 @@ Restart=always
 WantedBy=multi-user.target
 EOF
 
-    # 配置 ShadowTLS (使用 www.microsoft.com 作为伪装域名)
+    # 配置 ShadowTLS 
     PW=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
     cat > /etc/systemd/system/shadowtls.service << EOF
 [Unit]
 Description=ShadowTLS Service
 After=network.target snell.service
 [Service]
-ExecStart=/usr/local/bin/shadow-tls server --listen [::]:${STLS_PORT} --server 127.0.0.1:${SNELL_PORT} --tls www.microsoft.com:443 --password ${PW}
+ExecStart=/usr/local/bin/shadow-tls --v3 server --listen [::]:${STLS_PORT} --server 127.0.0.1:${SNELL_PORT} --tls www.microsoft.com:443 --password ${PW}
 Restart=always
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 [Install]
@@ -114,21 +113,20 @@ EOF
 
     systemctl daemon-reload && systemctl enable --now snell shadowtls
     
-    # IP 检测
     IP4=$(curl -s4 icanhazip.com || echo "None")
     IP6=$(curl -s6 icanhazip.com || echo "None")
 
     clear
     echo -e "${GREEN}==================================================${PLAIN}"
-    echo -e "${GREEN}安装成功！已切换至 Microsoft SNI 伪装。${PLAIN}"
+    echo -e "${GREEN}安装成功！已切换至 Shadow-TLS V3 模式。${PLAIN}"
     echo -e "--------------------------------------------------"
     echo -e "Snell 端口: ${YELLOW}${SNELL_PORT}${PLAIN}"
     echo -e "STLS 端口: ${YELLOW}${STLS_PORT}${PLAIN}"
     echo -e "--------------------------------------------------"
     
-    echo -e "${CYAN}1. Shadow-TLS 模式 (推荐)${PLAIN}"
-    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_4 = snell, ${IP4}, ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com"
-    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_6 = snell, [${IP6}], ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com"
+    echo -e "${CYAN}1. Surge 配置 (Shadow-TLS V3)${PLAIN}"
+    [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_4 = snell, ${IP4}, ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com, shadow-tls-version=3"
+    [[ "$IP6" != "None" ]] && echo -e "IPv6: $(hostname)_6 = snell, [${IP6}], ${STLS_PORT}, psk=${PSK}, version=5, tfo=true, shadow-tls-password=${PW}, shadow-tls-sni=www.microsoft.com, shadow-tls-version=3"
     
     echo -e "\n${CYAN}2. 纯 Snell 模式 (直连)${PLAIN}"
     [[ "$IP4" != "None" ]] && echo -e "IPv4: $(hostname)_Snell4 = snell, ${IP4}, ${SNELL_PORT}, psk=${PSK}, version=5, tfo=true"
@@ -138,7 +136,7 @@ EOF
 
 # --- 菜单循环 ---
 while true; do
-    echo -e "\n${CYAN}--- ShadowTLS & Snell 定制脚本 ---${PLAIN}"
+    echo -e "\n${CYAN}--- ShadowTLS V3 & Snell V5 定制脚本 ---${PLAIN}"
     echo -e "${GREEN}1)${PLAIN} 安装"
     echo -e "${RED}2)${PLAIN} 彻底卸载"
     echo -e "${YELLOW}0)${PLAIN} 退出脚本"
