@@ -626,7 +626,7 @@ fi
 # 下载并执行最新版本的脚本
 echo -e "${CYAN}正在获取最新版本的管理脚本...${RESET}"
 TMP_SCRIPT=$(mktemp)
-if curl -sL https://raw.githubusercontent.com/jinqians/snell.sh/main/snell.sh -o "$TMP_SCRIPT"; then
+if curl -sL https://raw.githubusercontent.com/luiaye/surge/refs/heads/main/snell.sh -o "$TMP_SCRIPT"; then
     bash "$TMP_SCRIPT"
     rm -f "$TMP_SCRIPT"
 else
@@ -1275,7 +1275,7 @@ setup_bbr() {
     echo -e "${CYAN}正在获取并执行 BBR 管理脚本...${RESET}"
     
     # 直接从远程执行BBR脚本
-    bash <(curl -sL https://raw.githubusercontent.com/jinqians/snell.sh/main/bbr.sh)
+    bash <(curl -sL https://raw.githubusercontent.com/luiaye/snell.sh/refs/heads/main/bbr.sh)
     
     # BBR 脚本执行完毕后会自动返回这里
     echo -e "${GREEN}BBR 管理操作完成${RESET}"
@@ -1285,7 +1285,7 @@ setup_bbr() {
 # ShadowTLS管理
 setup_shadowtls() {
     echo -e "${CYAN}正在执行 ShadowTLS 管理脚本...${RESET}"
-    bash <(curl -sL https://raw.githubusercontent.com/jinqians/snell.sh/main/shadowtls.sh)
+    bash <(curl -sL https://raw.githubusercontent.com/luiaye/snell.sh/refs/heads/main/shadowtls.sh)
     
     # ShadowTLS 脚本执行完毕后会自动返回这里
     echo -e "${GREEN}ShadowTLS 管理操作完成${RESET}"
