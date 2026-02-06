@@ -1,5 +1,6 @@
 #!name=Block WebRTC (STUN/TURN)
 #!desc=Block common WebRTC STUN/TURN to reduce WebRTC IP leak
+# 功能: 拦截双栈下的 WebRTC 探测
 
 [Rule]
 # 拦截双栈下的 WebRTC 探测
