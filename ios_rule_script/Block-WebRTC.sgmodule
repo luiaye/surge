@@ -1,3 +1,7 @@
+#!name=Block WebRTC (STUN/TURN)
+#!desc=Block common WebRTC STUN/TURN to reduce WebRTC IP leak
+
+[Rule]
 # 拦截双栈下的 WebRTC 探测
 AND,((PROTOCOL,UDP), (DEST-PORT,3478)),REJECT-DROP
 AND,((PROTOCOL,UDP), (DEST-PORT,19302)),REJECT-DROP
