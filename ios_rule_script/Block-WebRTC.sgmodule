@@ -1,6 +1,7 @@
 #!name=Block WebRTC (STUN/TURN)
 #!desc=Block common WebRTC STUN/TURN to reduce WebRTC IP leak
 # 功能: 拦截双栈下的 WebRTC 探测
+# 仓库地址:https://raw.githubusercontent.com/luiaye/surge/refs/heads/main/ios_rule_script/Block-WebRTC.sgmodule
 
 [Rule]
 # ===== WebRTC / STUN / TURN 暴力阻断（不考虑网页通话）=====
