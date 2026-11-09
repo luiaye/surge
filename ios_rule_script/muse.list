@@ -1,5 +1,20 @@
-DOMAIN-SUFFIX,museapp.com
-DOMAIN-SUFFIX,museapp.com
-DOMAIN-KEYWORD,museapp
-DOMAIN-KEYWORD,muse.ai
+# ==========================================
+# > Muse AI (Personal Agent / Meta AI Backend)
+# ==========================================
 
+# 1. 核心站点与 Web 端服务
+DOMAIN-SUFFIX,muse.ai,PROXY
+DOMAIN-SUFFIX,museai.com,PROXY
+DOMAIN-KEYWORD,muse.ai,PROXY
+
+# 2. 核心后端代理引擎与 API 调度 (Ecto1 / Agent Infrastructure)
+DOMAIN-SUFFIX,ecto1.ai,PROXY
+
+# 3. Meta AI 底层模型网关与同步服务 (Agent / Auth / CDN)
+DOMAIN,agent.meta.ai,PROXY
+DOMAIN,hatch.meta.ai,PROXY
+DOMAIN,dev.meta.ai,PROXY
+DOMAIN-SUFFIX,meta.ai,PROXY
+
+# 4. 账户接入与认证依赖
+DOMAIN-SUFFIX,accountkit.com,PROXY
