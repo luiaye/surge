@@ -7,6 +7,7 @@ DOMAIN-SUFFIX,meta.com
 
 # 后端执行引擎与沙箱调度
 DOMAIN-SUFFIX,ecto1.ai
+DOMAIN-SUFFIX,metaaivm.com
 
 # Meta AI 基础平台与 API 网关
 DOMAIN,agent.meta.ai
