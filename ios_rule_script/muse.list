@@ -3,18 +3,18 @@
 # ==========================================
 
 # 1. 核心站点与 Web 端服务
-DOMAIN-SUFFIX,muse.ai,PROXY
-DOMAIN-SUFFIX,museai.com,PROXY
-DOMAIN-KEYWORD,muse.ai,PROXY
+DOMAIN-SUFFIX,muse.ai
+DOMAIN-SUFFIX,museai.com
+DOMAIN-KEYWORD,muse.ai
 
 # 2. 核心后端代理引擎与 API 调度 (Ecto1 / Agent Infrastructure)
-DOMAIN-SUFFIX,ecto1.ai,PROXY
+DOMAIN-SUFFIX,ecto1.ai
 
 # 3. Meta AI 底层模型网关与同步服务 (Agent / Auth / CDN)
-DOMAIN,agent.meta.ai,PROXY
-DOMAIN,hatch.meta.ai,PROXY
-DOMAIN,dev.meta.ai,PROXY
-DOMAIN-SUFFIX,meta.ai,PROXY
+DOMAIN,agent.meta.ai
+DOMAIN,hatch.meta.ai
+DOMAIN,dev.meta.ai
+DOMAIN-SUFFIX,meta.ai
 
 # 4. 账户接入与认证依赖
-DOMAIN-SUFFIX,accountkit.com,PROXY
+DOMAIN-SUFFIX,accountkit.com
