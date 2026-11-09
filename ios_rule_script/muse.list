@@ -1,20 +1,17 @@
-# ==========================================
-# > Muse AI (Personal Agent / Meta AI Backend)
-# ==========================================
-
-# 1. 核心站点与 Web 端服务
+# > Muse AI Ruleset
+# 核心站点与 Web 服务
 DOMAIN-SUFFIX,muse.ai
 DOMAIN-SUFFIX,museai.com
 DOMAIN-KEYWORD,muse.ai
 
-# 2. 核心后端代理引擎与 API 调度 (Ecto1 / Agent Infrastructure)
+# 后端执行引擎与沙箱调度
 DOMAIN-SUFFIX,ecto1.ai
 
-# 3. Meta AI 底层模型网关与同步服务 (Agent / Auth / CDN)
+# Meta AI 基础平台与 API 网关
 DOMAIN,agent.meta.ai
 DOMAIN,hatch.meta.ai
 DOMAIN,dev.meta.ai
 DOMAIN-SUFFIX,meta.ai
 
-# 4. 账户接入与认证依赖
+# 鉴权与底层依赖
 DOMAIN-SUFFIX,accountkit.com
