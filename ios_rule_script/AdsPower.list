@@ -3,10 +3,10 @@
 # REPO: https://github.com/luiaye/surge/ios_rule_script
 # UPDATED: 2024-11-12 8:18:29
 # DOMAIN: 0
-# DOMAIN-SUFFIX: 0
+# DOMAIN-SUFFIX: 1
 # DOMAIN-KEYWORD:0
-# PROCESS-NAME:3
-# TOTAL: 9
+# PROCESS-NAME:13
+# TOTAL: 14
 DOMAIN-SUFFIX,adspower.net
 PROCESS-NAME,/Applications/AdsPower Global.app/Contents/MacOS/AdsPower Global
 PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Resources/utils/AdsPowerToolMerge.app/Contents/MacOS/AdsPowerToolMerge
