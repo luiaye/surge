@@ -10,9 +10,13 @@
 PROCESS-NAME,/Applications/AdsPower Global.app/Contents/MacOS/AdsPower Global
 PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Resources/utils/AdsPowerToolMerge.app/Contents/MacOS/AdsPowerToolMerge
 PROCESS-NAME,/Applications/AdsPower Global.app/Contents/Frameworks/AdsPower Global Helper.app/Contents/MacOS/AdsPower Global Helper
-PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_141/SunBrowser.app/
-PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_140/SunBrowser.app/
-PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/flower_141/FlowerBrowser.app/
-PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/flower_138/FlowerBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_160/SunBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_159/SunBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_158/SunBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_157/SunBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_156/SunBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/chrome_155/SunBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/flower_154/FlowerBrowser.app/
+PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/flower_153/FlowerBrowser.app/
 PROCESS-NAME,/Applications/AdsPower Global.app/
 PROCESS-NAME,/Users/mentari/Library/Application Support/adspower_global/cwd_global/utils/AdsPowerToolMerge.app/Contents/MacOS/AdsPowerToolMerge
