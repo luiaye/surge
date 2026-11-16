@@ -5,6 +5,7 @@ DOMAIN-SUFFIX,museai.com
 DOMAIN-KEYWORD,muse.ai
 DOMAIN-SUFFIX,meta.com
 DOMAIN-SUFFIX,facebook.com
+DOMAIN-SUFFIX,facebook.net
 
 # 后端执行引擎与沙箱调度
 DOMAIN-SUFFIX,ecto1.ai
