@@ -6,6 +6,8 @@ DOMAIN-KEYWORD,muse.ai
 DOMAIN-SUFFIX,meta.com
 DOMAIN-SUFFIX,facebook.com
 DOMAIN-SUFFIX,facebook.net
+DOMAIN-SUFFIX,instagram.com
+DOMAIN-SUFFIX,on.aws
 
 # 后端执行引擎与沙箱调度
 DOMAIN-SUFFIX,ecto1.ai
