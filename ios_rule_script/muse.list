@@ -1,32 +1,32 @@
 # > Meta / Facebook 补充核心通讯与 CDN 域名
-DOMAIN-SUFFIX,fbcdn.net,Proxy
-DOMAIN-SUFFIX,fbsbx.com,Proxy
-DOMAIN-SUFFIX,fb.com,Proxy
-DOMAIN-SUFFIX,fb.me,Proxy
-DOMAIN-SUFFIX,fb.watch,Proxy
-DOMAIN-SUFFIX,fbaddins.com,Proxy
-DOMAIN-SUFFIX,fbworkmail.com,Proxy
+DOMAIN-SUFFIX,fbcdn.net
+DOMAIN-SUFFIX,fbsbx.com
+DOMAIN-SUFFIX,fb.com
+DOMAIN-SUFFIX,fb.me
+DOMAIN-SUFFIX,fb.watch
+DOMAIN-SUFFIX,fbaddins.com
+DOMAIN-SUFFIX,fbworkmail.com
 
 # > Instagram 补充核心与 CDN 域名
-DOMAIN-SUFFIX,cdninstagram.com,Proxy
-DOMAIN-SUFFIX,ig.me,Proxy
-DOMAIN-SUFFIX,instagr.am,Proxy
+DOMAIN-SUFFIX,cdninstagram.com
+DOMAIN-SUFFIX,ig.me
+DOMAIN-SUFFIX,instagr.am
 
 # > WhatsApp 补充通讯域名
-DOMAIN-SUFFIX,whatsapp.com,Proxy
-DOMAIN-SUFFIX,whatsapp.net,Proxy
-DOMAIN-SUFFIX,wa.me,Proxy
+DOMAIN-SUFFIX,whatsapp.com
+DOMAIN-SUFFIX,whatsapp.net
+DOMAIN-SUFFIX,wa.me
 
 # > Messenger 专属域名
-DOMAIN-SUFFIX,messenger.com,Proxy
-DOMAIN-SUFFIX,m.me,Proxy
+DOMAIN-SUFFIX,messenger.com
+DOMAIN-SUFFIX,m.me
 
 # > 其他 Meta 底层短链接及 API
-DOMAIN-SUFFIX,oculus.com,Proxy
-DOMAIN-SUFFIX,oculuscdn.com,Proxy
-DOMAIN-SUFFIX,rocksdb.org,Proxy
+DOMAIN-SUFFIX,oculus.com
+DOMAIN-SUFFIX,oculuscdn.com
+DOMAIN-SUFFIX,rocksdb.org
 
 # > （可选）兜底关键字，以防某些动态生成的 API 子域名漏网
-DOMAIN-KEYWORD,facebook,Proxy
-DOMAIN-KEYWORD,instagram,Proxy
-DOMAIN-KEYWORD,whatsapp,Proxy
+DOMAIN-KEYWORD,facebook
+DOMAIN-KEYWORD,instagram
+DOMAIN-KEYWORD,whatsapp
