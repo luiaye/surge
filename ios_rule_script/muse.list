@@ -50,6 +50,10 @@ DOMAIN-SUFFIX,oculus.com
 DOMAIN-SUFFIX,oculuscdn.com
 DOMAIN-SUFFIX,rocksdb.org
 
+# > Stripe 支付与风控网关
+DOMAIN-SUFFIX,stripe.com,Proxy
+DOMAIN-SUFFIX,stripe.network,Proxy
+
 # > （可选）兜底关键字，以防某些动态生成的 API 子域名漏网
 DOMAIN-KEYWORD,facebook
 DOMAIN-KEYWORD,instagram
