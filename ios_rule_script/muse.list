@@ -1,23 +1,32 @@
-# > Muse AI Ruleset
-# 核心站点与 Web 服务
-DOMAIN-SUFFIX,muse.ai
-DOMAIN-SUFFIX,museai.com
-DOMAIN-KEYWORD,muse.ai
-DOMAIN-SUFFIX,meta.com
-DOMAIN-SUFFIX,facebook.com
-DOMAIN-SUFFIX,facebook.net
-DOMAIN-SUFFIX,instagram.com
-DOMAIN-SUFFIX,on.aws
+# > Meta / Facebook 补充核心通讯与 CDN 域名
+DOMAIN-SUFFIX,fbcdn.net,Proxy
+DOMAIN-SUFFIX,fbsbx.com,Proxy
+DOMAIN-SUFFIX,fb.com,Proxy
+DOMAIN-SUFFIX,fb.me,Proxy
+DOMAIN-SUFFIX,fb.watch,Proxy
+DOMAIN-SUFFIX,fbaddins.com,Proxy
+DOMAIN-SUFFIX,fbworkmail.com,Proxy
 
-# 后端执行引擎与沙箱调度
-DOMAIN-SUFFIX,ecto1.ai
-DOMAIN-SUFFIX,metaaivm.com
+# > Instagram 补充核心与 CDN 域名
+DOMAIN-SUFFIX,cdninstagram.com,Proxy
+DOMAIN-SUFFIX,ig.me,Proxy
+DOMAIN-SUFFIX,instagr.am,Proxy
 
-# Meta AI 基础平台与 API 网关
-DOMAIN,agent.meta.ai
-DOMAIN,hatch.meta.ai
-DOMAIN,dev.meta.ai
-DOMAIN-SUFFIX,meta.ai
+# > WhatsApp 补充通讯域名
+DOMAIN-SUFFIX,whatsapp.com,Proxy
+DOMAIN-SUFFIX,whatsapp.net,Proxy
+DOMAIN-SUFFIX,wa.me,Proxy
 
-# 鉴权与底层依赖
-DOMAIN-SUFFIX,accountkit.com
+# > Messenger 专属域名
+DOMAIN-SUFFIX,messenger.com,Proxy
+DOMAIN-SUFFIX,m.me,Proxy
+
+# > 其他 Meta 底层短链接及 API
+DOMAIN-SUFFIX,oculus.com,Proxy
+DOMAIN-SUFFIX,oculuscdn.com,Proxy
+DOMAIN-SUFFIX,rocksdb.org,Proxy
+
+# > （可选）兜底关键字，以防某些动态生成的 API 子域名漏网
+DOMAIN-KEYWORD,facebook,Proxy
+DOMAIN-KEYWORD,instagram,Proxy
+DOMAIN-KEYWORD,whatsapp,Proxy
