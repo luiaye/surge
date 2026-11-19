@@ -1,3 +1,27 @@
+# > Muse AI Ruleset
+# 核心站点与 Web 服务
+DOMAIN-SUFFIX,muse.ai
+DOMAIN-SUFFIX,museai.com
+DOMAIN-KEYWORD,muse.ai
+DOMAIN-SUFFIX,meta.com
+DOMAIN-SUFFIX,facebook.com
+DOMAIN-SUFFIX,facebook.net
+DOMAIN-SUFFIX,instagram.com
+DOMAIN-SUFFIX,on.aws
+
+# 后端执行引擎与沙箱调度
+DOMAIN-SUFFIX,ecto1.ai
+DOMAIN-SUFFIX,metaaivm.com
+
+# Meta AI 基础平台与 API 网关
+DOMAIN,agent.meta.ai
+DOMAIN,hatch.meta.ai
+DOMAIN,dev.meta.ai
+DOMAIN-SUFFIX,meta.ai
+
+# 鉴权与底层依赖
+DOMAIN-SUFFIX,accountkit.com
+
 # > Meta / Facebook 补充核心通讯与 CDN 域名
 DOMAIN-SUFFIX,fbcdn.net
 DOMAIN-SUFFIX,fbsbx.com
